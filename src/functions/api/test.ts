@@ -1,3 +1,3 @@
 export function onRequestGet() {
-  return Response.json({"test":42})
+  return new Response('hello');
 }
