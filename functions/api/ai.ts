@@ -1,15 +1,13 @@
-export interface Env {
-    // If you set another name in wrangler.toml as the value for 'binding',
-    // replace "AI" with the variable name you defined.
-    AI: Ai;
-  }
-  
-  export default {
-    async fetch(request, env): Promise<Response> {
-      const response = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
-        prompt: "What is the origin of the phrase Hello, World",
-      });
-  
-      return new Response(JSON.stringify(response));
-    },
-  } satisfies ExportedHandler<Env>;
+interface Env {
+  AI: Ai
+}
+
+export const onRequestPost: PagesFunction<Env> = async (ctx) => {
+  const body = await ctx.request.json<{question:string}>();
+
+  const response = await ctx.env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
+    prompt: body.question,
+  });
+
+  return new Response(JSON.stringify(response));
+}

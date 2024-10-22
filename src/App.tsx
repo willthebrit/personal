@@ -1,14 +1,14 @@
 import "@mantine/core/styles.css";
 
 import { MantineProvider, Title } from "@mantine/core";
-import { Test } from "./components/Test";
+import { Ai } from "./components/Ai";
 
 export default function App() {
   return (
     <MantineProvider>
       <>
         <Title>WTB</Title>
-        <Test />
+        <Ai />
       </>
     </MantineProvider>
   );
