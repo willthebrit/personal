@@ -1,17 +1,17 @@
 import React from "react";
 
 export const Test = () => {
-  const [data, setData] = React.useState({ test: "" });
+  const [data, setData] = React.useState("");
 
   React.useEffect(() => {
-    const getTest = async () => {
-      const testData = await fetch("/api/test");
+    const getAi = async () => {
+      const testData = await fetch("/api/ai");
       const response = await testData.json();
       setData(response);
     };
 
-    getTest();
+    getAi();
   }, []);
 
-  return <p>hello {data.test}</p>;
+  return <p>hello {data}</p>;
 };
