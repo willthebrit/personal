@@ -9,5 +9,5 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
     prompt: body.question,
   });
 
-  return new Response(JSON.stringify(response));
+  return new Response(JSON.stringify(response) );
 }

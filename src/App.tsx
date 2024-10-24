@@ -1,14 +1,14 @@
 import "@mantine/core/styles.css";
 
 import { MantineProvider, Title } from "@mantine/core";
-import { Ai } from "./components/Ai";
+import { AiChat } from "./components";
 
 export default function App() {
   return (
     <MantineProvider>
       <>
-        <Title>WTB</Title>
-        <Ai />
+        <Title>Play</Title>
+        <AiChat />
       </>
     </MantineProvider>
   );
